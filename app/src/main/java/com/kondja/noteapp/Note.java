@@ -1,8 +1,19 @@
 package com.kondja.noteapp;
 
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
+@Entity(tableName = "notes")
 public class Note {
-    private int id;
-    private String title,body;
+    @PrimaryKey
+    public int id;
+
+    @ColumnInfo(name = "note_title")
+    public String title;
+
+    @ColumnInfo(name = "note_body")
+    public String body;
 
     public int getId() {
         return id;
