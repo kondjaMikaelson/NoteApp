@@ -13,7 +13,10 @@ import java.util.List;
 @Dao
 public interface NoteDao {
     @Query("SELECT * FROM notes")
-    List<Note> getAll();
+    LiveData<List<Note>> getAll();
+
+    @Query("SELECT * FROM notes order by note_title ASC")
+    LiveData<List<Note>> getAllAsc();
 
     @Query("SELECT * FROM notes where id IN (:noteIds)")
     List<Note> loadAllByIds(int[] noteIds);
