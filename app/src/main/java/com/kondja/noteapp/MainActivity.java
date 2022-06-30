@@ -11,15 +11,11 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    private NoteDao noteDao;
-    private List<Note> allNotes;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        NoteDatabase db = NoteDatabase.getInstance(getApplicationContext());
-        noteDao = db.noteDao();
-        allNotes = noteDao.getAll();
     }
 }

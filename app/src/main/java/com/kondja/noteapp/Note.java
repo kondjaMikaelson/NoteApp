@@ -15,6 +15,11 @@ public class Note {
     @ColumnInfo(name = "note_body")
     public String body;
 
+    public Note(String title, String body){
+        this.title=title;
+        this.body=body;
+    }
+
     public int getId() {
         return id;
     }
