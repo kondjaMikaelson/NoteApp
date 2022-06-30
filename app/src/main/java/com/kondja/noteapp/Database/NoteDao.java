@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
+import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 
 import com.kondja.noteapp.Note;
@@ -24,8 +25,8 @@ public interface NoteDao {
     @Query("SELECT * FROM notes where note_title like :title")
     Note findByName(String title);
 
-    @Insert
-    void insertAll(Note... notes);
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    void insert(Note note);
 
     @Delete
     void delete(Note note);

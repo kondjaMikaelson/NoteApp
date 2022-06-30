@@ -18,6 +18,18 @@ public class NoteRepository {
         //"Todo: test to see if this works"
         allNotes = noteDao.getAll();
         allNotes = noteDao.getAllAsc();
+    }
 
+    // Room executes all queries on a separate thread.
+    // Observed LiveData will notify the observer when the data has changed.
+    LiveData<List<Note>> getAllNotes() {
+        return allNotes;
+    }
+    // You must call this on a non-UI thread or your app will throw an exception. Room ensures
+    // that you're not doing any long running operations on the main thread, blocking the UI.
+    void insert(Note word) {
+        NoteDatabase.databaseWriteExecutor.execute(() -> {
+            noteDao.insert(word);
+        });
     }
 }
