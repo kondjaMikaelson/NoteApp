@@ -15,7 +15,6 @@ public class NoteRepository {
     NoteRepository(Application application){
         NoteDatabase db = NoteDatabase.getInstance(application);
         noteDao = db.NoteDao();
-        //"Todo: test to see if this works"
         allNotes = noteDao.getAll();
         allNotes = noteDao.getAllAsc();
     }
