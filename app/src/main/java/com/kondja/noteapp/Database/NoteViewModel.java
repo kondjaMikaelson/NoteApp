@@ -25,6 +25,8 @@ public class NoteViewModel extends AndroidViewModel {
     LiveData<List<Note>> getAllNotes() {
         return allNotes;
     }
+
+    //TODO: add methods for all other tasks to be performed on the data(Notes)
     public void insert(Note note){
         noteRepository.insert(note);
     }

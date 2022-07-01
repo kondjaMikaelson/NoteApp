@@ -24,6 +24,10 @@ public class NoteRepository {
     LiveData<List<Note>> getAllNotes() {
         return allNotes;
     }
+    //TODO: add methods for all other methods present in DAO
+
+
+
     // You must call this on a non-UI thread or your app will throw an exception. Room ensures
     // that you're not doing any long running operations on the main thread, blocking the UI.
     void insert(Note note) {
