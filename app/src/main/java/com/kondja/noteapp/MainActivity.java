@@ -21,5 +21,7 @@ public class MainActivity extends AppCompatActivity {
         final NoteListAdapter adapter = new NoteListAdapter(new NoteListAdapter.NoteDiff());
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        //TODO: need to add logic for pre-populating DB
     }
 }
