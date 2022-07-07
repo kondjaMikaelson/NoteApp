@@ -2,9 +2,11 @@ package com.kondja.noteapp.Database;
 
 import android.content.Context;
 
+import androidx.annotation.NonNull;
 import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
+import androidx.sqlite.db.SupportSQLiteDatabase;
 
 import com.kondja.noteapp.Note;
 
@@ -30,5 +32,25 @@ public abstract class NoteDatabase extends RoomDatabase {
         }
         return instance;
     }
+    private static RoomDatabase.Callback sRoomDatabaseCallback = new RoomDatabase.Callback(){
+
+        @Override
+        public void onCreate(@NonNull SupportSQLiteDatabase db) {
+            super.onCreate(db);
+            // If you want to keep data through app restarts,
+            // comment out the following block
+            databaseWriteExecutor.execute(() -> {
+                // Populate the database in the background.
+                // If you want to start with more words, just add them.
+                NoteDao dao = instance.NoteDao();
+                dao.deleteAll();
+
+                Note note = new Note("Hello", "This a short body");
+                dao.insert(note);
+                note = new Note("World", "This is a note with a long body");
+                dao.insert(note);
+            });
+        }
+    };
 
 }
