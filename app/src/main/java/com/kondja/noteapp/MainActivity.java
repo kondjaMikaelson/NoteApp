@@ -22,7 +22,6 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        //TODO: need to add logic for pre-populating DB.
 
     }
 }
