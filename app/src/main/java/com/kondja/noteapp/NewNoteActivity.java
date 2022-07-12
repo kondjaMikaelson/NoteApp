@@ -27,7 +27,7 @@ public class NewNoteActivity extends AppCompatActivity {
             }else{
                 String note = editText.getText().toString();
                 intent.putExtra(EXTRA_REPLY, note);
-                setResult(RESULT_OK,intent);
+                setResult(RESULT_OK, intent);
             }
             finish();
         });
