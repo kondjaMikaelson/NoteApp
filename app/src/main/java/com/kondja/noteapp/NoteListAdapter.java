@@ -15,7 +15,7 @@ public class NoteListAdapter extends ListAdapter<Note, NoteViewHolder> {
     @NonNull
     @Override
     public NoteViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return null;
+        return NoteViewHolder.create(parent);
     }
 
     @Override
